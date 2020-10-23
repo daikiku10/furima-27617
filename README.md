@@ -18,17 +18,17 @@
 
 ## items テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
-| explain         | text       | null: false                    |
-| category        | string     | null: false                    |
-| status          | string     | null: false                    |
-| delivery_burden | string     | null: false                    |
-| delivery_area   | string     | null: false                    |
-| delivery_day    | string     | null: false                    |
-| price           | integer    | null: false                    |
-| user            | references | null: false, foreign_key: true |
+| Column             | Type        | Options                        |
+| ------------------ | ----------- | ------------------------------ |
+| name               | string      | null: false                    |
+| explain            | text        | null: false                    |
+| category_id        | integer     | null: false                    |
+| status_id          | integer     | null: false                    |
+| delivery_burden_id | integer     | null: false                    |
+| delivery_area_id   | integer     | null: false                    |
+| delivery_day_id    | integer     | null: false                    |
+| price              | integer     | null: false                    |
+| user               | references  | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
