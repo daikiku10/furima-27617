@@ -38,10 +38,6 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| card_number   | string     | null: false                    |
-| expire_month  | integer    | null: false                    |
-| expire_year   | integer    | null: false                    |
-| security_code | string     | null: false                    |
 | postal_code   | string     | null: false                    |
 | province      | string     | null: false                    |
 | city          | string     | null: false                    |
