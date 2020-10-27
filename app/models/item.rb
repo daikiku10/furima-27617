@@ -11,6 +11,7 @@ class Item < ApplicationRecord
 
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :explain
     validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999, message: "Out of setting range"}, format: {with: /\A[0-9]+\z/, message: "Half-width number"}
@@ -21,7 +22,7 @@ class Item < ApplicationRecord
     validates :delivery_day
   end
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message: 'Select'} do
     validates :category_id
     validates :status_id
     validates :delivery_burden_id
