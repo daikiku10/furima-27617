@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+function price () {
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
@@ -7,4 +7,6 @@ window.addEventListener('load', () => {
     addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
     salesProfit.innerHTML = Math.floor(inputValue - addTaxDom.innerHTML);
   });
-})
+}
+
+setInterval(price, 1000);
