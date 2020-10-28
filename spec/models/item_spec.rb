@@ -37,8 +37,20 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category Select")
       end
 
+      it 'category_idが 1 だと登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Select")
+      end
+
       it 'status_idが空だと登録できない' do
         @item.status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status Select")
+      end
+
+      it 'status_idが 1 だと登録できない' do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status Select")
       end
@@ -49,14 +61,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery burden Select")
       end
 
+      it 'delivery_burden_idが 1 だと登録できない' do
+      @item.delivery_burden_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Delivery burden Select")
+    end
+
       it 'delivery_area_idが空だと登録できない' do
         @item.delivery_area_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery area Select")
       end
 
+      it 'delivery_area_idが 1 だと登録できない' do
+        @item.delivery_area_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery area Select")
+      end
+
       it 'delivery_day_idが空だと登録できない' do
         @item.delivery_day_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery day Select")
+      end
+
+      it 'delivery_day_idが 1 だと登録できない' do
+        @item.delivery_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery day Select")
       end
