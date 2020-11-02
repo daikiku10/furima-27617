@@ -66,7 +66,6 @@ RSpec.describe OrderForm, type: :model do
     it 'phone_numberが12桁以上だと保存ができない' do
       @order_form.phone_number = '090123456789'
       @order_form.valid?
-      binding.pry
       expect(@order_form.errors.full_messages).to include("Phone number input only number")
     end
   end
