@@ -7,7 +7,7 @@ class OrderForm
     validates :prefecture_id, numericality: {other_than: 0, message: "Select" }
     validates :city
     validates :house_number
-    validates :phone_number, format: {with: /\A[0-9]\z/, message: 'input only number'}, length: { maximum: 11, } 
+    validates :phone_number, format: {with: /\A\d{10}$|^\d{11}\z/, message: 'input only number'}
   end
 
   def save
