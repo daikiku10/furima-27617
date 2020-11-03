@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :cheak_user, only: :edit
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :cheak_item, only: :edit
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -57,5 +58,12 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def cheak_item
+    item = Item.find(params[:id])
+    if Order.exists?(item_id: item.id)
+      redirect_to root_path
+    end
   end
 end
