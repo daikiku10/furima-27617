@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :explain
-    validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999, message: "Out of setting range"}, format: {with: /\A[0-9]+\z/, message: "Half-width number"}
+    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 9999999, message: "Out of setting range"}, format: {with: /\A[0-9]+\z/, message: "Half-width number"}
     validates :category
     validates :status_id
     validates :delivery_burden_id

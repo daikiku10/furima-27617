@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :cheak_user, only: :index
+  before_action :sold_item, only: :index
 
   def index
     @order_form = OrderForm.new
@@ -39,5 +40,12 @@ class OrdersController < ApplicationController
       card: form_params[:token],
       currency: 'jpy' 
     )
+  end
+
+  def sold_item
+    item = Item.find(params[:item_id])
+    if Order.exists?(item_id: item.id)
+      redirect_to root_path
+    end
   end
 end
