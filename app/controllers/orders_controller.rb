@@ -2,14 +2,13 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :cheak_user, only: :index
   before_action :sold_item, only: :index
+  before_action :set_item, only: [:index, :create]
 
   def index
     @order_form = OrderForm.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_form = OrderForm.new(form_params)
     if @order_form.valid?
       pay_item
@@ -47,5 +46,9 @@ class OrdersController < ApplicationController
     if Order.exists?(item_id: item.id)
       redirect_to root_path
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
